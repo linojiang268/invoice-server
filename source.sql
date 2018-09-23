@@ -4,7 +4,7 @@
 
 CREATE TABLE public.users
 (
-  id uuid NOT NULL,
+  id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
   username character varying(32) NOT NULL, -- 用户名
   password character varying(64) NOT NULL, -- 密码
   role character varying(32) NOT NULL, -- 角色

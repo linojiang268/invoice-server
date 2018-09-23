@@ -39,4 +39,9 @@ public class PageController {
     public String userAdministratorsAdminForm() {
         return "/user/administrators/adminform";
     }
+
+    @GetMapping("set/user/password")
+    public String setUserPassword() {
+        return "/set/user/password";
+    }
 }

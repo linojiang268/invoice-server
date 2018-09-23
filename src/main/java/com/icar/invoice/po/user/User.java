@@ -1,18 +1,17 @@
 package com.icar.invoice.po.user;
 
 public class User {
-    private String id;
+    private int id;
     private String username;
     private String password;
     private String role;
     private String name;
 
-    public String getId() {
-
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

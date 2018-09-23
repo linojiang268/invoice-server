@@ -39,4 +39,27 @@ public class AuthController extends Controller {
         httpSession.setAttribute(WebMvcConf.SESSION_KEY, rstUser.getId());
         return this.json();
     }
+
+    @PostMapping("/api/user/logout")
+    public Object userLogout(HttpSession httpSession) {
+        httpSession.removeAttribute(WebMvcConf.SESSION_KEY);
+        return this.json();
+    }
+
+    @PostMapping("/api/user/password/change")
+    public Object changePassword(HttpSession httpSession, String oldPassword, String password, String repassword) {
+        User user = userService.getUser((int) httpSession.getAttribute(WebMvcConf.SESSION_KEY));
+
+        if (!user.getPassword().equals(oldPassword)) {
+            return this.jsonException(10000, "旧密码错误");
+        }
+
+        if (!password.equals(repassword)) {
+            return this.jsonException(10000, "两次密码输入不一致");
+        }
+
+        userService.changePassword(user, password);
+
+        return this.json();
+    }
 }

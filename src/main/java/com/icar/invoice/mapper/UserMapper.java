@@ -1,15 +1,22 @@
 package com.icar.invoice.mapper;
 
 import com.icar.invoice.po.user.User;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 @Mapper
 public interface UserMapper {
+    @Select("select * from users where id=#{id}")
+    @Results({
+            @Result(property = "id", column = "id"),
+            @Result(property = "username", column = "username"),
+            @Result(property = "password", column = "password"),
+            @Result(property = "role", column = "role"),
+            @Result(property = "name", column = "name")
+    })
+    User getUserById(int id);
+
     @Select("select * from users where username=#{username}")
     @Results({
             @Result(property = "id", column = "id"),
@@ -28,6 +35,10 @@ public interface UserMapper {
             @Result(property = "name", column = "name")
     })
     List<User> findAll();
+
+    @Update("UPDATE users set password=#{password} where id=#{id}")
+    void changePassword(User user);
+
 //
 //    @Select("SELECT * FROM users WHERE id = #{id}")
 //    @Results({

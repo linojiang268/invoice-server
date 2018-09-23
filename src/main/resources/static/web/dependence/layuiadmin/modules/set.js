@@ -133,18 +133,18 @@ layui.define(['form', 'upload'], function(exports){
   
   //设置密码
   form.on('submit(setmypass)', function(obj){
-    layer.msg(JSON.stringify(obj.field));
+    // layer.msg(JSON.stringify(obj.field));
     
     //提交修改
-    /*
     admin.req({
-      url: ''
+      url: '/api/user/password/change'
+      ,type: 'post'
       ,data: obj.field
       ,success: function(){
-        
+            alert("修改成功");
+            location.href = '/home/console';
       }
     });
-    */
     return false;
   });
   

@@ -19,10 +19,21 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         User rstUser = this.userMapper.getUserByUsername(user.getUsername());
 
-        if (null != rstUser && rstUser.getUsername().equals(user.getUsername())) {
+        if (null != rstUser && rstUser.getPassword().equals(user.getPassword())) {
             return rstUser;
         }
         return null;
+    }
+
+    @Override
+    public User getUser(int id) {
+        return this.userMapper.getUserById(id);
+    }
+
+    @Override
+    public void changePassword(User user, String password) {
+        user.setPassword(password);
+        this.userMapper.changePassword(user);
     }
 
     @Override
