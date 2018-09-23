@@ -25,11 +25,6 @@ public class PageController {
         return "redirect:/login";
     }
 
-    @GetMapping("/home/console")
-    public String homeConsole() {
-        return  "/home/console";
-    }
-
     @GetMapping("/user/administrators/list")
     public String userAdministratorsList() {
         return "/user/administrators/list";
@@ -43,5 +38,15 @@ public class PageController {
     @GetMapping("set/user/password")
     public String setUserPassword() {
         return "/set/user/password";
+    }
+
+    @GetMapping("/invoice/list")
+    public String invoiceList() {
+        return "/invoice/list";
+    }
+
+    @GetMapping("/invoice/manager_list")
+    public String invoiceManagerList() {
+        return "/invoice/manager_list";
     }
 }

@@ -119,7 +119,7 @@ layui.define(['table', 'form'], function(exports){
       layer.open({
         type: 2
         ,title: '编辑用户'
-        ,content: '../../../views/user/administrators/adminform.html'
+        ,content: '../../../views/user/administrators/form.html'
         ,area: ['420px', '420px']
         ,btn: ['确定', '取消']
         ,yes: function(index, layero){

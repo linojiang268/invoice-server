@@ -142,7 +142,7 @@ layui.define(['form', 'upload'], function(exports){
       ,data: obj.field
       ,success: function(){
             alert("修改成功");
-            location.href = '/home/console';
+            location.href = '/invoice/list';
       }
     });
     return false;
